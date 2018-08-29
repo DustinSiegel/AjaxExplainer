@@ -1,0 +1,557 @@
+<h2>With AJAX you can:</h2>
+
+<p>
+  <ul>
+    <li>Update a web page without reloading the page</li>
+    <li>Request data from a server - after the page has loaded</li>
+    <li>Receive data from a server - after the page has loaded</li>
+    <li>Send data to a server - in the background</li>
+  </ul>
+
+<h2>What is AJAX?</h2>
+
+<h4>AJAX = Asynchronous JavaScript And XML.</h4>
+
+<h3>AJAX uses a combination of:</h3>
+
+<ul>
+  <li>A browser built-in XMLHttpRequest object (to request data from a web server)</li>
+  <li>JavaScript and HTML DOM (to display or use the data)</li>
+</ul>
+
+<h5>NOTE: AJAX is a misleading name. AJAX applications might use XML to transport data, but it is equally common to transport data as plain text or JSON text.</h5>
+
+<br />
+<div>
+============================================================================================================================
+</div>
+<br /><br />
+
+<h2>How it works:</h2>
+<ol>
+  <li>An event occurs in a web page (the page is loaded, a button is clicked)</li>
+  <li>An XMLHttpRequest object is created by JavaScript</li>
+  <li>The XMLHttpRequest object sends a request to a web server</li>
+  <li>The server processes the request</li>
+  <li>The server sends a response back to the web page</li>
+  <li>The response is read by JavaScript</li>
+  <li>Proper action (like page update) is performed by JavaScript</li>
+</ol>
+
+<br />
+<div>
+============================================================================================================================
+</div>
+<br /><br />
+
+<h2>jQuery:</h2>
+
+<h3>The following table lists all the jQuery AJAX methods:</h3>
+
+<h3>Method:................Description:</h3>
+
+<ul>
+  <li>$.ajax()--------------Performs an async AJAX request</li>
+  <li>$.ajaxPrefilter()-----Handle custom Ajax options or modify existing options before each request is sent and before they are processed by $.ajax()</li>
+  <li>$.ajaxSetup()---------Sets the default values for future AJAX requests</li>
+  <li>$.ajaxTransport()-----Creates an object that handles the actual transmission of Ajax data</li>
+  <li>$.get()---------------Loads data from a server using an AJAX HTTP GET request</li>
+  <li>$.getJSON()-----------Loads JSON-encoded data from a server using a HTTP GET request</li>
+  <li>$.getScript()---------Loads (and executes) a JavaScript from a server using an AJAX HTTP GET request</li>
+  <li>$.param()-------------Creates a serialized representation of an array or object (can be used as URL query string for AJAX requests)</li>
+  <li>$.post()--------------Loads data from a server using an AJAX HTTP POST request</li>
+  <li>ajaxComplete()--------Specifies a function to run when the AJAX request completes
+  <li>ajaxError()-----------Specifies a function to run when the AJAX request completes with an error</li>
+  <li>ajaxSend()------------Specifies a function to run before the AJAX request is sent</li>
+  <li>ajaxStart()-----------Specifies a function to run when the first AJAX request begins</li>
+  <li>ajaxStop()------------Specifies a function to run when all AJAX requests have completed</li>
+  <li>ajaxSuccess()---------Specifies a function to run when an AJAX request completes successfully</li>
+  <li>load()----------------Loads data from a server and puts the returned data into the selected element</li>
+  <li>serialize()-----------Encodes a set of form elements as a string for submission</li>
+  <li>serializeArray()------Encodes a set of form elements as an array of names and values</li>
+</ul>
+
+<h2>jQuery Misc Methods (useful with Ajax):</h2>
+
+<h3>Method:...............Description:</h3>
+
+<ul>
+  <li>data()----------------Attaches data to, or gets data from, selected elements</li>
+  <li>each()----------------Execute a function for each matched element</li>
+  <li>get()-----------------Get the DOM elements matched by the selector</li>
+  <li>index()---------------Search for a given element from among the matched elements</li>
+  <li>$.noConflict()--------Release jQuery's control of the $ variable</li>
+  <li>$.param()-------------Create a serialized representation of an array or object (can be used as URL query string for AJAX requests)</li>
+  <li>removeData()----------Removes a previously-stored piece of data</li>
+  <li>size()----------------Removed in version 3.0. Use the length property instead.</li>
+  <li>toArray()-------------Retrieve all the DOM elements contained in the jQuery set, as an array</li>
+</ul>
+
+<br />
+<div>
+============================================================================================================================
+</div>
+<br /><br />
+
+<h2>jQuery and AJAX?</h2>
+
+<h3>jQuery provides several methods for AJAX functionality.</h3>
+
+<p>With the jQuery AJAX methods, you can request text, HTML, XML, or JSON from a remote server using both HTTP Get and HTTP Post - And you can load the external data directly into the selected HTML elements of your web page!</p>
+
+<h3>Without jQuery, AJAX coding can be a bit tricky!</h3>
+
+<p>Writing regular AJAX code can be a bit tricky, because different browsers have different syntax for AJAX implementation. This means that you will have to write extra code to test for different browsers. However, the jQuery team has taken care of this for us, so that we can write AJAX functionality with only one single line of code.</p>
+
+<br />
+<div>
+============================================================================================================================
+</div>
+<br /><br />
+
+<h2>jQuery AJAX Methods:</h2>
+
+<h3>jQuery load() Method:</h3>
+<ul>
+  <li>The jQuery load() method is a simple, but powerful AJAX method.</li>
+  <li>The load() method loads data from a server and puts the returned data into the selected element.</li>
+</ul>
+
+<h2>Syntax:</h2>
+
+<p>$(selector).load(URL,data,callback);</p>
+
+<ul>
+  <li>The required URL parameter specifies the URL you wish to load.</li>
+  <li>The optional data parameter specifies a set of querystring key/value pairs to send along with the request.</li>
+  <li>The optional callback parameter is the name of a function to be executed after the load() method is completed.</li>
+</ul>
+
+<h3>Example:</h3>
+  <p>$("#div1").load("ajax_info.txt");</p>
+
+<h5>It is also possible to add a jQuery selector to the URL parameter.</h5>
+
+<h5>The following example loads the content of the element with id="demo", inside the file "ajax_info.txt", into a specific <div> element:</h5>
+
+<h3>Example:</h3>
+  <p>$("#div1").load("ajax_info.txt #demo");</p>
+
+<h5>The optional callback parameter specifies a callback function to run when the load() method is completed. The callback function can have different parameters:</h5>
+
+<ul>
+  <li>responseTxt --- contains the resulting content if the call succeeds</li>
+  <li>statusTxt --- contains the status of the call</li>
+  <li>xhr --- contains the XMLHttpRequest object</li>
+</ul>
+
+<h5>The following example displays an alert box after the load() method completes. If the load() method has succeeded, it displays "External content loaded successfully!", and if it fails it displays an error message:</h5>
+
+<h3>Example:</h3>
+<p>$("button").click(function(){</p>
+    <p>$("#div1").load("ajax_info.txt", function(responseTxt, statusTxt, xhr){/p>
+        <p>if(statusTxt == "success")</p>
+            <p>alert("External content loaded successfully!");</p>
+        <p>if(statusTxt == "error")/p>
+            <p>alert("Error: " + xhr.status + ": " + xhr.statusText);</p>
+    <p>});</p>
+<p>});</p>
+
+<br />
+<div>
+============================================================================================================================
+</div>
+<br /><br />
+
+<h2>jQuery - AJAX get() and post() Methods:</h2>
+
+<h5>The jQuery get() and post() methods are used to request data from the server with an HTTP GET or POST request.</h5>
+
+<h3>HTTP Request: GET vs. POST</h3>
+
+<h5>Two commonly used methods for a request-response between a client and server are: GET and POST.</h5>
+
+<ul>
+  <li>GET - Requests data from a specified resource</li>
+  <li>POST - Submits data to be processed to a specified resource</li>
+  <li>GET is basically used for just getting (retrieving) some data from the server. Note: The GET method may return cached data.</li>
+</ul>
+
+<h5>POST can also be used to get some data from the server. However, the POST method NEVER caches data, and is often used to send data along with the request.</h5>
+
+<h3>jQuery $.get() Method</h3>
+
+<h5>The $.get() method requests data from the server with an HTTP GET request.</h5>
+
+<h2>Syntax:</h2>
+
+<p>$.get(URL,callback);</p>
+
+<h5>The required URL parameter specifies the URL you wish to request.</h5>
+
+<h5>The optional callback parameter is the name of a function to be executed if the request succeeds.</h5>
+
+<h4>The following example uses the $.get() method to retrieve data from a file on the server:<h4>
+
+<h3>Example</h3>
+<p>$("button").click(function(){</p>
+    <p>$.get("demo_test.asp", function(data, status){</p>
+        <p>alert("Data: " + data + "\nStatus: " + status);</p>
+    <p>});</p>
+<p>});</p>
+
+<h5>The first parameter of $.get() is the URL we wish to request ("demo_test.asp").</h5>
+
+<h5>The second parameter is a callback function. The first callback parameter holds the content of the page requested, and the second callback parameter holds the status of the request.</h5>
+
+<h4>Here is how the ASP file looks like ("demo_test.asp"):</h4>
+
+<p><%</p>
+<p>response.write("This is some text from an external ASP file.")</p>
+<p>%></p>
+
+<br />
+<div>
+============================================================================================================================
+</div>
+<br /><br />
+
+<h2>jQuery $.post() Method:</h2>
+
+<h5>The $.post() method requests data from the server using an HTTP POST request.</h5>
+
+<h3>Syntax:</h3 
+<p>$.post(URL,data,callback);</p>
+
+</p>
+  <li>The required URL parameter specifies the URL you wish to request.</li>
+  <li>The optional data parameter specifies some data to send along with the request.</li>
+  <li>The optional callback parameter is the name of a function to be executed if the request succeeds.</li>
+  <li>The following example uses the $.post() method to send some data along with the request:</li>
+</ul>
+
+<h3>Example:</h3>
+
+<p>$("button").click(function(){</p>
+    <p>$.post("demo_test_post.asp",</p>
+    <p>{</p>
+        <p>name: "Donald Duck",</p>
+        <p>city: "Duckburg"</p>
+    <p>},</p>
+    <p>function(data, status){</p>
+        <p>alert("Data: " + data + "\nStatus: " + status);</p>
+    <p>});</p>
+<p>});</p>
+
+<ul>
+  <li>The first parameter of $.post() is the URL we wish to request ("demo_test_post.asp").</li>
+  <li>Then we pass in some data to send along with the request (name and city).</li>
+  <li>The ASP script in "demo_test_post.asp" reads the parameters, processes them, and returns a result.</li>
+  <li>The third parameter is a callback function. The first callback parameter holds the content of the page requested, and the second callback parameter holds the status of the request.</li>
+</ul>
+
+<h4>Here is how the ASP file looks like ("demo_test_post.asp"):</h4>
+
+<p><%</p>
+<p>dim fname,city</p>
+<p>fname=Request.Form("name")</p>
+<p>city=Request.Form("city")</p>
+<p>Response.Write("Dear " & fname & ". ")</p>
+<p>Response.Write("Hope you live well in " & city & ".")</p>
+<p>%></p>
+
+<br />
+<div>
+============================================================================================================================
+</div>
+<br /><br />
+
+<h2>The XMLHttpRequest Object - The Keystone of AJAX!</h2>
+
+<h5>The XMLHttpRequest object can be used to exchange data with a server behind the scenes without reloading the whole page.</h5>
+
+<h4>Syntax for creating an XMLHttpRequest object:</h4>
+<p>variable = new XMLHttpRequest();</p>
+
+<h3>XMLHttpRequest Object Methods:</h3>
+
+<h3>Method:.......................Description:</h3>
+
+<ul>
+  <li>new XMLHttpRequest()--------------Creates a new XMLHttpRequest object</li>
+  <li>abort()---------------------------Cancels the current request</li>
+  <li>getAllResponseHeaders()-----------Returns header information</li>
+  <li>getResponseHeader()---------------Returns specific header information</li>
+  <li>open(method,url,async,user,psw)---Specifies the request</li>
+
+  <li>----------------------------------method: the request type GET or POST</li>
+  <li>----------------------------------url: the file location</li>
+  <li>----------------------------------async: true (asynchronous) or false (synchronous)</li>
+  <li>----------------------------------user: optional user name</li>
+  <li>----------------------------------psw: optional password</li>
+  
+  <li>send()----------------------------Sends the request to the server</li>
+  <li>----------------------------------Used for GET requests</li>
+
+  <li>send(string)----------------------Sends the request to the server.</li>
+  <li>----------------------------------Used for POST requests</li>
+
+  <li>setRequestHeader()----------------Adds a label/value pair to the header to be sent</li>
+</ul>
+
+<br />
+<div>
+========================================================================================================================
+</div>
+<br /><br />
+
+<h2>XMLHttpRequest Object Properties:</h2>
+
+<h3>Property:.........................Description:</h3>
+
+<ul>
+  <li>onreadystatechange----------------Defines a function to be called when the readyState property changes</li>
+
+  <li>readyState------------------------Holds the status of the XMLHttpRequest.</li>
+ 
+  <li>----------------------------------0: request not initialized</li> 
+  <li>----------------------------------1: server connection established</li>
+  <li>----------------------------------2: request received</li> 
+  <li>----------------------------------3: processing request</li> 
+  <li>----------------------------------4: request finished and response is ready</li>
+
+  <li>responseText----------------------Returns the response data as a string</li>
+
+  <li>responseXML-----------------------Returns the response data as XML data</li>
+
+  <li>status----------------------------Returns the status-number of a request</li>
+
+  <li>----------------------------------200: "OK"</li>
+  <li>----------------------------------403: "Forbidden"</li>
+  <li>----------------------------------404: "Not Found"</li>
+
+  <li>statusText------------------------Returns the status-text (e.g. "OK" or "Not Found")</li>
+</ul>
+
+<br />
+<div>
+======================================================================================================================
+</div>
+<br /><br />
+
+<h2>Send a Request To a Server:</h2>
+
+<h5>Use the open() and send() methods of the XMLHttpRequest object:</h5>
+
+<h3>Example:</h3>
+<p>xhttp.open("GET", "ajax_info.txt", true);</p>
+<p>xhttp.send();</P>
+
+<h3>Method:............................Description:</h3>
+
+<ul>
+  <li>open(method, url, async)---------Specifies the type of request</li>
+
+  <li>---------------------------------method: the type of request: GET or POST</li>
+  <li>---------------------------------url: the server (file) location</li>
+  <li>---------------------------------async: true (asynchronous) or false (synchronous)</li>
+
+  <li>send()---------------------------Sends the request to the server (used for GET)</li>
+
+  <li>send(string)---------------------Sends the request to the server (used for POST)</li>
+</ul>
+
+<br />
+<div>
+======================================================================================================================
+</div>
+<br /><br />
+
+<h2>GET or POST?</h2>
+
+<h5>GET is simpler and faster than POST, and can be used in most cases.</h5>
+
+<h5>However, always use POST requests when:</h5>
+
+<ul>
+  <li>A cached file is not an option (update a file or database on the server).</li>
+  <li>Sending a large amount of data to the server (POST has no size limitations).</li>
+  <li>Sending user input (which can contain unknown characters), POST is more robust and secure than GET.</li>
+</ul>
+
+<h3>GET Requests</h3>
+
+<h4>A simple GET request:	</h4>
+
+<p>xhttp.open("GET", "ajax_info.txt", true);</p>
+<p>xhttp.send();</p>
+
+<h5>If you don't want a cached result: Add in a unique id to the URL</h5>
+<h5>If you want to send some information along with the GET: add in that info into the URL:</h5>
+
+<h4>Example:</h4>
+
+<p>xhttp.open("GET", "demo_get2.asp?fname=Dustin&lname=Siegel&is=Awesome", true);</p>
+<p>xhttp.send();</p>
+
+<br />
+<div>
+======================================================================================================================
+</div>
+<br /><br />
+
+<h2>POST Requests</h2>
+
+<h4>A simple POST request:</h4>
+
+<p>xhttp.open("POST", "demo_post.asp", true);</p>
+<p>xhttp.send();</p>
+
+<h4>To POST data like an HTML form, add an HTTP header with setRequestHeader() and specify the data you want to send in the send() method:</h4>
+
+<h4>Example:</h4>
+
+<p>xhttp.open("POST", "demo_post2.asp", true);</p>
+<p>xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");</p>
+<p>xhttp.send("fname=Dustin&lname=Siegel");</p>
+
+<ul>
+  <li>Method:..............................Description:</li>
+
+  <li>setRequestHeader(header, value)------Adds HTTP headers to the request</li>
+
+  <li>-------------------------------------header: specifies the header name</li>
+  <li>-------------------------------------value: specifies the header value</li>
+</ul>
+
+<br />
+<div>
+======================================================================================================================
+</div>
+<br /><br />
+
+<h2>The url - A File On a Server<h2>
+
+<h5>The url parameter of the open() method, is an address to a file on a server:</h5>
+
+<h5>TThe file can be any kind of file, like .txt and .xml, or server scripting files like .asp and .php (which can perform actions on the server before sending the response back).</h5>
+
+<h3>Asynchronous - True or False?</h3>
+<h5>TServer requests should be sent asynchronously.</h5>
+
+<h5>TThe async parameter of the open() method should be set to true:</h5>
+
+<h3Example:</h3>
+<p>xhttp.open("GET", "ajax_info.txt", true);</p>
+
+<h5>TBy sending asynchronously, the JavaScript does not have to wait for the server response, but can instead:</h5>
+
+<h5>TExecute other scripts while waiting for server response and deal with the response after the response is ready.</h5>
+
+<br />
+<div>
+======================================================================================================================
+</div>
+<br /><br />
+
+<h2>The onreadystatechange Property</h2>
+
+<h5>With the XMLHttpRequest object you can define a function to be executed when the request receives an answer.</h5>
+
+<h5>The function is defined in the onreadystatechange property of the XMLHttpResponse object:</h5>
+
+<h3>Example:</h3
+
+<p>xhttp.onreadystatechange = function() {</p>
+	<p>if (this.readyState == 4 && this.status == 200) {</p>
+		<p>document.getElementById("demo").innerHTML = this.responseText;</p>
+	<p>}</p>
+<p>};</p>
+<p>xhttp.open("GET", "ajax_info.txt", true);</p>
+<p>xhttp.send();</p>
+
+<br />
+<div>
+======================================================================================================================
+</div>
+<br /><br />
+
+<h2>AJAX - Server Response</h2>
+
+<h5>The onreadystatechange Property:</h5>
+
+<ul>
+  <li>The readyState property holds the status of the XMLHttpRequest.</li>
+  <li>The onreadystatechange property defines a function to be executed when the readyState changes.</li>
+  <li>The status property and the statusText property holds the status of the XMLHttpRequest object.</li>
+</ul>
+
+<h5>Property	Description:</h5>
+
+<h5>onreadystatechange:	Defines a function to be called when the readyState property changes</h5>
+
+<ul>
+  <li>readyState--------------Holds the status of the XMLHttpRequest.</li>
+  <li>------------------------0: request not initialized </li>
+  <li>------------------------1: server connection established</li>
+  <li>------------------------2: request received </li>
+  <li>------------------------3: processing request </li>
+  <li>------------------------4: request finished and response is ready</li>
+
+  <li>status------------------200: "OK"</li>
+  <li>------------------------403: "Forbidden"</li>
+  <li>------------------------404: "Page not found"</li>
+  <li>------------------------For a complete list go to the Http Messages Reference</li>
+  <li>statusText--------------Returns the status-text (e.g. "OK" or "Not Found")</li>
+</ul>
+
+<h5>The onreadystatechange event is triggered four times (1-4), one time for each change in the readyState.</h5>
+
+<br />
+<div>
+======================================================================================================================
+</div>
+<br /><br />
+
+<h2>Using a Callback Function</h2<
+
+<h5>A callback function is a function passed as a parameter to another function.</h5>
+
+<h5>If you have more than one AJAX task in a website, you should create one function for executing the XMLHttpRequest object, and one callback function for each AJAX task.</h5>
+
+<h5>The function call should contain the URL and what function to call when the response is ready.</h5>
+
+<h3>Example:</h3>
+
+<p>loadDoc("url-1", myFunction1);</p>
+
+<p>loadDoc("url-2", myFunction2);</p>
+
+<p>function loadDoc(url, cFunction) {</p>
+  <p>var xhttp;</p>
+  <p>xhttp=new XMLHttpRequest();</p>
+  <p>xhttp.onreadystatechange = function() {</p>
+    <p>if (this.readyState == 4 && this.status == 200) {</p>
+      <p>cFunction(this);</p>
+    <p>}</p>
+ <p>};</p>
+  <p>xhttp.open("GET", url, true);</p>
+  <p>xhttp.send();</p>
+<p>}</p>
+
+<p>function myFunction1(xhttp) {</p>
+  <p>// action goes here</p>
+<p>} </p>
+<p>function myFunction2(xhttp) {</p>
+  <p>// action goes here</p>
+<p>}</p>
+
+<br />
+<div>
+======================================================================================================================
+</div>
+<br /><br />
+
+</p>
+
+

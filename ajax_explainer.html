@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ajax Explainer></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script>
+      // This piece is for the jQuery ajax call only
+      $(document).ready(function(){
+          $(".button1").click(function(){
+              $("#div1").load("ajax_info.txt", function(responseTxt, statusTxt, xhr){
+                  if(statusTxt == "success")
+                      alert("External content loaded successfully!" + ": " + xhr.status + ": " + xhr.statusText);
+                  if(statusTxt == "error")
+                      alert("Error: " + xhr.status + ": " + xhr.statusText);
+              });
+          });
+      });
+
+      // this piece is for the XMLHttp Ajax call only
+      function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("div2").innerHTML =
+            this.responseText;
+          }
+        };
+        // xhttp.open("GET", "ajax_info.txt", true);
+        xhttp.open("GET", "my_test_page.cfm?id=56667", true);
+        xhttp.send();
+      } 
+      </script>
+  </head>
+  <body>
+    <div>
+      &nbsp;
+    </div>
+    <h4 style="text-align: center;">Run this program locally in FireFox since other browsers require a server.</h4>
+    <div>
+      &nbsp;
+    </div>
+    <h1 style="text-align: center;">Two Examples of Simple Ajax Calls</h1>
+    <div>
+      &nbsp;
+    </div>
+    <div>
+      &nbsp;
+    </div>
+
+    <!-- jQuery style ajax call is printed to the page here -->
+    <div style="text-align: center;">
+      <div><h2>Press this button to use AJAX and jQuery to grab some notes!</h2></div>
+      <button class="button1">Get AJAX Notes</button>
+    </div>
+    <div class="col-sm-2"></div>
+    <div id="div1" class="col-sm-10"><h3>The Ajax notes will replace this text.</h3></div>
+    <div>
+      &nbsp;
+    </div>
+    <div>
+      &nbsp;
+    </div>
+
+<!-- XMLHttpRequest style ajax call  is printed here-->
+    <div style="text-align: center;">
+      <h2>Press this button to use AJAX and XMLHttp to grab some notes!</h2>
+      <button type="button" onclick="loadDoc()">Get AJAX Notes</button>
+    </div>
+    <div class="col-sm-2"></div>
+    <div id="div2" class="col-sm-10"><h3>The Ajax notes will replace this text.</h3></div>
+    <script >
+
+
+    </script>
+  </body>
